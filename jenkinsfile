@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    // Build steps here
+                    echo 'Building...'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    // Test steps here
+                    echo 'Testing...'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    // Deploy steps here
+                    echo 'Deploying...'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
